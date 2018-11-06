@@ -3,12 +3,14 @@ import PortfolioStock from '../components/PortfolioStock'
 class PortfolioContainer extends Component {
 
   render() {
+    const { purchasedStocks } = this.props
     return (
       <Fragment>
         <ul className="list-group">
           <h2>My Portfolio</h2>
-          {
-            //render your portfolio stocks here
+          {purchasedStocks.map(ps => {
+            return <PortfolioStock key={ps.id} purchasedStock={ps} />
+          })
           }
         </ul>
       </Fragment>
